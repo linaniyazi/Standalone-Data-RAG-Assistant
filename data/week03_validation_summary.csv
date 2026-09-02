@@ -1,0 +1,8 @@
+Metric,Before,After
+Total rows,12575,11971
+Missing - Item,1213,0
+Missing - Price Per Unit,609,0
+Missing - Quantity,604,0
+Missing - Total Spent,604,0
+Missing - Discount Applied,4199,0
+Duplicate rows,0,0
