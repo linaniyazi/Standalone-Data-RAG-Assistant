@@ -1,0 +1,9 @@
+2026-09-10 18:55:46,602 - INFO - Pipeline started
+2026-09-10 18:55:46,651 - INFO - Extracted 12575 rows from data/retail_store_sales.csv
+2026-09-10 18:55:46,787 - INFO - Loaded 11971 rows to data/retail_store_sales_cleaned.csv
+2026-09-10 18:55:46,787 - INFO - Pipeline finished successfully
+2026-09-10 18:56:49,716 - INFO - Pipeline started
+2026-09-10 18:56:49,752 - INFO - Extracted 12575 rows from data/retail_store_sales.csv
+2026-09-10 18:56:49,766 - INFO - Transformed data: 12575 → 11971 rows
+2026-09-10 18:56:49,841 - INFO - Loaded 11971 rows to data/retail_store_sales_cleaned.csv
+2026-09-10 18:56:49,858 - INFO - Pipeline finished successfully
