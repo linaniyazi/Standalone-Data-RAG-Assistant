@@ -1,0 +1,28 @@
+INVOICE #INV-2024-1187
+
+Superstore Retail Group
+Billing Department
+
+Bill To: Regional Office - West
+Invoice Date: November 15, 2024
+Due Date: December 15, 2024
+
+Description: Monthly supply order - Office Supplies category
+Order Reference: ORD-88291
+
+Items:
+- Paper products (bulk order): $1,240.00
+- Binders and folders: $680.50
+- Storage boxes: $410.00
+
+Subtotal: $2,330.50
+Discount Applied: 10% (Regional Bulk Order Discount)
+Discount Amount: -$233.05
+Total Due: $2,097.45
+
+Payment Method: Bank Transfer
+Payment Status: Pending
+
+Notes: This invoice covers the West region's standard monthly office
+supplies replenishment. Discount applied per the Q4 2024 bulk ordering
+agreement. Late payments after the due date incur a 2% monthly penalty.

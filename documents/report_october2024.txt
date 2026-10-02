@@ -1,0 +1,28 @@
+MONTHLY PERFORMANCE REPORT
+Period: October 2024
+Prepared by: Sales Analytics Team
+
+Executive Summary:
+Total sales for October 2024 reached $59,687.75, with total profit of
+$16,243.14, representing a profit margin of approximately 27.2%, the
+strongest monthly margin recorded this year.
+
+Regional Breakdown:
+- West Region: Continued to lead in both sales and profit margin,
+  driven primarily by strong Technology category performance.
+- Central Region: Remained the weakest-performing region, consistent
+  with prior quarters, due to lower margins across Furniture products.
+
+Category Notes:
+- Technology and Office Supplies categories maintained healthy margins
+  above 15%.
+- Furniture category continued to underperform, with the Tables
+  sub-category showing a negative margin for the fourth consecutive
+  month.
+
+Recommendations:
+1. Review pricing strategy for the Tables sub-category.
+2. Consider reducing discount approval thresholds for Furniture orders
+   given ongoing margin pressure.
+3. Investigate replicating West region's Technology sales approach in
+   underperforming regions.

@@ -1,0 +1,30 @@
+[
+  {
+    "chunk_id": "faq_orders_payment.txt_chunk0",
+    "source_document": "faq_orders_payment.txt",
+    "document_type": "faq",
+    "chunk_index": 0,
+    "text": "FREQUENTLY ASKED QUESTIONS: Order & Payment Process Q: How long does it take to process a new order? A: Standard orders are processed within 2-3 business days. Bulk orders over $5,000 may take up to 5 business days due to additional approval steps. Q: What payment methods are accepted? A: We accept bank transfer, credit card, and digital wallet payments. Cash payments are only accepted for in-store purchases. Q: Can I apply a discount to an existing order? A: Discounts can only be applied before an order is finalized. Once an order is confirmed, any discount request must go through the customer service team and may require manager approval depending on the discount percentage. Q: What happens if a payment is late? A: Payments not received by the due date incur a 2% monthly penalty, applied to the outstanding balance until payment is received. Q: How can I check the status of my order? A: Order status can be checked through the customer portal using your Order Reference number, or by contacting the regional support team."
+  },
+  {
+    "chunk_id": "invoice_nov2024.txt_chunk0",
+    "source_document": "invoice_nov2024.txt",
+    "document_type": "invoice",
+    "chunk_index": 0,
+    "text": "INVOICE #INV-2024-1187 Superstore Retail Group Billing Department Bill To: Regional Office - West Invoice Date: November 15, 2024 Due Date: December 15, 2024 Description: Monthly supply order - Office Supplies category Order Reference: ORD-88291 Items: - Paper products (bulk order): $1,240.00 - Binders and folders: $680.50 - Storage boxes: $410.00 Subtotal: $2,330.50 Discount Applied: 10% (Regional Bulk Order Discount) Discount Amount: -$233.05 Total Due: $2,097.45 Payment Method: Bank Transfer Payment Status: Pending Notes: This invoice covers the West region's standard monthly office supplies replenishment. Discount applied per the Q4 2024 bulk ordering agreement. Late payments after the due date incur a 2% monthly penalty."
+  },
+  {
+    "chunk_id": "policy_discount_approval.txt_chunk0",
+    "source_document": "policy_discount_approval.txt",
+    "document_type": "policy",
+    "chunk_index": 0,
+    "text": "POLICY DOCUMENT: Discount Approval Policy Document ID: POL-SALES-004 Effective Date: January 1, 2024 Department: Sales Operations Purpose: This policy defines the approval thresholds for discounts applied to customer orders across all regions (West, East, South, Central). Policy Details: 1. Discounts under 10%: Can be approved directly by the sales representative handling the order, no further authorization needed. 2. Discounts between 10% and 20%: Require approval from the Regional Sales Manager before being applied to the order. 3. Discounts above 20%: Require written approval from the Director of Sales, and must be documented with a business justification. 4. Furniture category orders: Due to historically low profit margins in this category (particularly Tables and Bookcases), any discount above 5% requires Regional Sales Manager approval regardless of the order size. 5. All approved discounts must be logged in the order management system with the approver's name and the reason for the discount. This policy was last reviewed in October 2024 following a profitability review of the Furniture category."
+  },
+  {
+    "chunk_id": "report_october2024.txt_chunk0",
+    "source_document": "report_october2024.txt",
+    "document_type": "report",
+    "chunk_index": 0,
+    "text": "MONTHLY PERFORMANCE REPORT Period: October 2024 Prepared by: Sales Analytics Team Executive Summary: Total sales for October 2024 reached $59,687.75, with total profit of $16,243.14, representing a profit margin of approximately 27.2%, the strongest monthly margin recorded this year. Regional Breakdown: - West Region: Continued to lead in both sales and profit margin, driven primarily by strong Technology category performance. - Central Region: Remained the weakest-performing region, consistent with prior quarters, due to lower margins across Furniture products. Category Notes: - Technology and Office Supplies categories maintained healthy margins above 15%. - Furniture category continued to underperform, with the Tables sub-category showing a negative margin for the fourth consecutive month. Recommendations: 1. Review pricing strategy for the Tables sub-category. 2. Consider reducing discount approval thresholds for Furniture orders given ongoing margin pressure. 3. Investigate replicating West region's Technology sales approach in underperforming regions."
+  }
+]

@@ -1,0 +1,30 @@
+POLICY DOCUMENT: Discount Approval Policy
+Document ID: POL-SALES-004
+Effective Date: January 1, 2024
+Department: Sales Operations
+
+Purpose:
+This policy defines the approval thresholds for discounts applied to
+customer orders across all regions (West, East, South, Central).
+
+Policy Details:
+
+1. Discounts under 10%: Can be approved directly by the sales
+   representative handling the order, no further authorization needed.
+
+2. Discounts between 10% and 20%: Require approval from the Regional
+   Sales Manager before being applied to the order.
+
+3. Discounts above 20%: Require written approval from the Director of
+   Sales, and must be documented with a business justification.
+
+4. Furniture category orders: Due to historically low profit margins
+   in this category (particularly Tables and Bookcases), any discount
+   above 5% requires Regional Sales Manager approval regardless of the
+   order size.
+
+5. All approved discounts must be logged in the order management
+   system with the approver's name and the reason for the discount.
+
+This policy was last reviewed in October 2024 following a profitability
+review of the Furniture category.
