@@ -4,7 +4,14 @@ import time
 from google import genai
 from google.genai import types
 
-MODEL_NAME = "gemini-3.8-flash"
+# النماذج بالترتيب: إذا فشل واحد (ضغط/كوتا/غير موجود) بننتقل للتالي.
+# الكوتا المجانية لكل نموذج لحاله، فكل نموذج إله حد يومي منفصل.
+MODELS = [
+    "gemini-3.5-flash",
+    "gemini-3.8-flash",
+    "gemini-3.1-flash-lite",
+    "gemini-3.5-flash-lite",
+]
 
 client = genai.Client(
     api_key=os.environ["GEMINI_API_KEY"],
@@ -12,40 +19,55 @@ client = genai.Client(
 )
 
 
-def call_gemini_json(prompt, system_instruction, retries=3, temperature=0.1):
+def _is_model_level_error(err: str) -> bool:
+    """أخطاء بتخلينا ننتقل للنموذج التالي مباشرة بدون إعادة محاولة."""
+    return any(
+        s in err
+        for s in ("429", "404", "RESOURCE_EXHAUSTED", "NOT_FOUND")
+    )
+
+
+def call_gemini_json(prompt, system_instruction, retries=2, temperature=0.1):
     """
     Call Gemini and return a parsed JSON dict.
-    Retries on errors or invalid JSON; returns a structured fallback if all attempts fail.
+    For each model: retry on temporary errors / invalid JSON.
+    If a model hits quota (429) or is not found (404), move to the next model.
+    Returns a structured fallback only if ALL models fail.
     """
-    last_error = None
+    errors = {}
 
-    for attempt in range(1, retries + 1):
-        try:
-            response = client.models.generate_content(
-                model=MODEL_NAME,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    system_instruction=system_instruction,
-                    response_mime_type="application/json",
-                    temperature=temperature,
-                ),
-            )
-            return json.loads(response.text)
+    for model in MODELS:
+        for attempt in range(1, retries + 1):
+            try:
+                response = client.models.generate_content(
+                    model=model,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        system_instruction=system_instruction,
+                        response_mime_type="application/json",
+                        temperature=temperature,
+                    ),
+                )
+                result = json.loads(response.text)
+                if isinstance(result, dict):
+                    result["model_used"] = model
+                return result
 
-        except Exception as e:
-            last_error = str(e)
-            print(f"Attempt {attempt}/{retries} failed: {last_error[:120]}")
+            except Exception as e:
+                err = str(e)
+                errors[model] = err[:200]
+                print(f"[{model}] attempt {attempt}/{retries} failed: {err[:120]}")
 
-            # Permanent errors: retrying won't help, stop immediately
-            if "429" in last_error or "404" in last_error or "RESOURCE_EXHAUSTED" in last_error:
-                break
+                if _is_model_level_error(err):
+                    break  # ما بينفع نعيد على نفس النموذج
+                if attempt < retries:
+                    time.sleep(2 ** attempt)
 
-            if attempt < retries:
-                time.sleep(2 ** attempt)
+        print(f"[fallback] switching away from {model}")
 
     return {
         "error": "Service unavailable, please try again later.",
-        "details": last_error,
+        "details": errors,
         "fallback": True,
     }
 
