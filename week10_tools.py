@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 import re
 import sqlite3
 import time
@@ -12,12 +13,18 @@ from sklearn.metrics.pairwise import cosine_similarity
 # ---------------------------------------------------------------
 # Logging: كل استدعاء أداة بينكتب بالشاشة وبملف tool_logs.log
 # ---------------------------------------------------------------
+# الـ console بيعرض التحذيرات والأخطاء بس، والتفاصيل كلها بـ tool_logs.log
+# (لعرض كل شي بالـ console: set TOOL_LOG_CONSOLE=1)
+_console = logging.StreamHandler()
+_console.setLevel(
+    logging.INFO if os.environ.get("TOOL_LOG_CONSOLE") == "1" else logging.WARNING
+)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s",
     handlers=[
         logging.FileHandler("tool_logs.log", encoding="utf-8"),
-        logging.StreamHandler(),
+        _console,
     ],
 )
 log = logging.getLogger("tools")
@@ -112,7 +119,9 @@ def query_cost_table(sql: str) -> str:
     - category_summary(Category,total_sales,total_profit,overall_profit_margin)
     - subcategory_summary("Sub-Category",total_sales,total_profit,overall_profit_margin)
     - region_summary(Region,total_sales,total_profit,overall_profit_margin)
-    Prefer the summary views when they answer the question."""
+    Prefer the summary views when they answer the question.
+    Data covers 2014-01-03 to 2017-12-30. For month-based questions, group
+    by year as well or filter a specific year."""
     start = time.time()
     log.info(f"[query_cost_table] input: sql={sql!r}")
     ok, result = _is_safe_select(sql)
@@ -133,23 +142,3 @@ def query_cost_table(sql: str) -> str:
     except Exception as e:
         log.error(f"[query_cost_table] failed: {e}")
         return json.dumps({"error": str(e)})
-    
-    
-import llm_functions as w9
-
-
-@tool
-def summarize_result(text: str) -> str:
-    """Summarize a piece of text or a tool result (documents or SQL rows)
-    into a short structured JSON with a summary and a key insight.
-    Use this as the last step, after search_documents or query_cost_table."""
-    start = time.time()
-    log.info(f"[summarize_result] input: {len(text)} chars")
-    try:
-        result = w9.summarize_to_json(text)
-        log.info(f"[summarize_result] output keys={list(result.keys())} "
-                f"({time.time() - start:.2f}s)")
-        return json.dumps(result, ensure_ascii=False)
-    except Exception as e:
-        log.error(f"[summarize_result] failed: {e}")
-        return json.dumps({"error": str(e), "fallback": True})

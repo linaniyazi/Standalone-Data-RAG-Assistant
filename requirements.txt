@@ -1,0 +1,10 @@
+# Data + RAG Assistant
+pandas
+scikit-learn
+python-dotenv
+fastapi
+uvicorn
+langchain-core>=1.7.4
+langchain-google-genai>=4.4.2
+langgraph>=1.2.19
+google-genai>=2.33.0
