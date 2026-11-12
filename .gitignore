@@ -6,3 +6,7 @@ costs.db
 .vscode/
 tool_logs.log
 __pycache__/
+
+*.log
+*.sqbpro
+*_test.db
